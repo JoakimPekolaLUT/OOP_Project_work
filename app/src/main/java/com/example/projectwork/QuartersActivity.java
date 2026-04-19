@@ -16,12 +16,19 @@ import com.example.projectwork.ui.CrewAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+// This activity is used to manage crew members in Quarters.
+// The player can recruit new crew members and move selected ones
+// to the Simulator or Mission Control.
 public class QuartersActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewCrew;
     private CrewAdapter crewAdapter;
     private final List<CrewMember> crewList = new ArrayList<>();
+
+    // Used to create simple default names
     private int recruitCounter = 1;
+
+    // Stores the currently selected crew member
     private CrewMember selectedCrewMember = null;
 
     @Override
@@ -29,13 +36,16 @@ public class QuartersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quarters);
 
+        // Find UI elements from the layout
         recyclerViewCrew = findViewById(R.id.recyclerViewCrew);
         Button buttonAddCrew = findViewById(R.id.buttonAddCrew);
         Button buttonMoveToSimulator = findViewById(R.id.buttonMoveToSimulator);
         Button buttonMoveToMission = findViewById(R.id.buttonMoveToMission);
 
+        // Set up RecyclerView with a vertical layout
         recyclerViewCrew.setLayoutManager(new LinearLayoutManager(this));
 
+        // Create adapter and handle crew member selection
         crewAdapter = new CrewAdapter(crewList, crewMember -> {
             selectedCrewMember = crewMember;
             Toast.makeText(this, crewMember.getName() + " selected", Toast.LENGTH_SHORT).show();
@@ -43,6 +53,7 @@ public class QuartersActivity extends AppCompatActivity {
 
         recyclerViewCrew.setAdapter(crewAdapter);
 
+        // Recruit a new crew member with a rotating class type
         buttonAddCrew.setOnClickListener(v -> {
             Storage storage = Storage.getInstance();
 
@@ -56,6 +67,7 @@ public class QuartersActivity extends AppCompatActivity {
             updateList();
         });
 
+        // Move the selected crew member to the Simulator
         buttonMoveToSimulator.setOnClickListener(v -> {
             if (selectedCrewMember == null) {
                 Toast.makeText(this, "Select a crew member first", Toast.LENGTH_SHORT).show();
@@ -68,6 +80,7 @@ public class QuartersActivity extends AppCompatActivity {
             updateList();
         });
 
+        // Move the selected crew member to Mission Control
         buttonMoveToMission.setOnClickListener(v -> {
             if (selectedCrewMember == null) {
                 Toast.makeText(this, "Select a crew member first", Toast.LENGTH_SHORT).show();
@@ -86,9 +99,12 @@ public class QuartersActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        // Refresh the crew list when returning to this screen
         updateList();
     }
 
+    // Updates the RecyclerView with crew members currently in Quarters
     private void updateList() {
         Storage storage = Storage.getInstance();
         List<CrewMember> quartersCrew = storage.getCrewByLocation(Location.QUARTERS);

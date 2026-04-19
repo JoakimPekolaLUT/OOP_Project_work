@@ -1,5 +1,8 @@
 package com.example.projectwork.model;
 
+// This abstract class represents enemies in missions.
+// It defines shared stats and behavior such as attacking defending,
+// and checking if the enemy is still alive.
 public abstract class Enemy {
     protected String name;
     protected int skill;
@@ -7,6 +10,7 @@ public abstract class Enemy {
     protected int energy;
     protected int maxEnergy;
 
+    // Creates a new enemy with stats based on difficulty level
     public Enemy(String name, int skill, int defense, int maxEnergy) {
         this.name = name;
         this.skill = skill;
@@ -15,10 +19,12 @@ public abstract class Enemy {
         this.energy = maxEnergy;
     }
 
+    // Calculates attack damage based on skill
     public int attack() {
         return skill + (int) (Math.random() * 3);
     }
 
+    // Reduces incoming damage using defense and lowers energy
     public int defend(int incomingDamage) {
         int finalDamage = Math.max(0, incomingDamage - defense);
         energy -= finalDamage;
@@ -28,6 +34,7 @@ public abstract class Enemy {
         return finalDamage;
     }
 
+    // Returns true if the enemy still has energy left
     public boolean isAlive() {
         return energy > 0;
     }
@@ -54,6 +61,7 @@ public abstract class Enemy {
         return maxEnergy;
     }
 
+    // Returns a description used in mission logs
     @Override
     public String toString() {
         return getType() + " - " + name +
@@ -62,6 +70,7 @@ public abstract class Enemy {
                 " | Energy: " + energy + "/" + maxEnergy;
     }
 
+    // Reduces enemy defense (engineers special ability)
     public void reduceDefense(int amount) {
         defense -= amount;
         if (defense < 0) {
