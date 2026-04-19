@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/textSelectedCrew1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crew 1: None"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textSelectedCrew2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crew 2: None"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonReturnToQuarters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Return Selected to Quarters" />
+
+    <Button
+        android:id="@+id/buttonStartMission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Mission" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMissionCrew"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="12dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:id="@+id/textMissionLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mission log will appear here"
+            android:textSize="16sp" />
+    </ScrollView>
+
+</LinearLayout>

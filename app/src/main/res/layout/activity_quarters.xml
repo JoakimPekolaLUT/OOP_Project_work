@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <Button
+        android:id="@+id/buttonAddCrew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recruit Crew Member" />
+
+    <Button
+        android:id="@+id/buttonMoveToSimulator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Move Selected to Simulator" />
+
+    <Button
+        android:id="@+id/buttonMoveToMission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Move Selected to Mission Control" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCrew"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>
