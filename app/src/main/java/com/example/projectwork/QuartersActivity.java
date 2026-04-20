@@ -53,6 +53,11 @@ public class QuartersActivity extends AppCompatActivity {
 
         recyclerViewCrew.setAdapter(crewAdapter);
 
+        //Back to main menu.
+        Button buttonBack = findViewById(R.id.buttonBack);
+
+        buttonBack.setOnClickListener(v -> finish());
+
         // Recruit a new crew member with a rotating class type
         buttonAddCrew.setOnClickListener(v -> {
             Storage storage = Storage.getInstance();

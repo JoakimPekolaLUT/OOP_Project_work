@@ -61,6 +61,11 @@ public class MissionControlActivity extends AppCompatActivity {
         crewAdapter = new MissionCrewAdapter(crewList, this::handleCrewSelection);
         recyclerViewMissionCrew.setAdapter(crewAdapter);
 
+        //Back to main menu
+        Button buttonBack = findViewById(R.id.buttonBack);
+
+        buttonBack.setOnClickListener(v -> finish());
+
         // Button for returning a crew member to Quarters
         buttonReturnToQuarters.setOnClickListener(v -> returnSelectedToQuarters());
 

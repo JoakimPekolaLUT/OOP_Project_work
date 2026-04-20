@@ -2,6 +2,7 @@ package com.example.projectwork;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,12 +23,17 @@ public class StatisticsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
+        Button buttonBack = findViewById(R.id.buttonBack);
+
+        buttonBack.setOnClickListener(v -> finish());
+
         // Find the TextView that shows all statistics
         textStatistics = findViewById(R.id.textStatistics);
 
         // Load statistics when the activity starts
         updateStatistics();
     }
+
 
     @Override
     protected void onResume() {

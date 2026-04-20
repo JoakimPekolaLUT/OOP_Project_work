@@ -31,6 +31,12 @@
         android:layout_height="wrap_content"
         android:text="Start Mission" />
 
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to Menu" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMissionCrew"
         android:layout_width="match_parent"

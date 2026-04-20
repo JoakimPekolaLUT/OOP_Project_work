@@ -24,6 +24,12 @@
         android:layout_height="wrap_content"
         android:text="Return Selected to Quarters" />
 
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to Menu" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSimulator"
         android:layout_width="match_parent"

@@ -52,6 +52,11 @@ public class SimulatorActivity extends AppCompatActivity {
 
         recyclerViewSimulator.setAdapter(crewAdapter);
 
+        //Back to main menu.
+        Button buttonBack = findViewById(R.id.buttonBack);
+
+        buttonBack.setOnClickListener(v -> finish());
+
         // Train selected crew member
         buttonTrain.setOnClickListener(v -> trainSelectedCrew());
 
